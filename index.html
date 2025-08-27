@@ -180,13 +180,12 @@
             <!-- EDIT ONLY THIS CONFIG ARRAY -->
             <script>
                 // Use export=preview for smooth open; change to export=download if you prefer forced download.
-                const preview = id => `https://drive.google.com/uc?export=preview&id=${id}`;
+                const view = id => `https://drive.google.com/file/d/${id}/view?usp=sharing`;
 
-                // IDs taken from your Drive "Get link" (between /d/ and /view). First ID had a trailing "-", removed.
                 const PDF_LINKS = [
-                    { title: "Comparative Analysis", url: preview("1NHKaSamcCqbTTFWpGYjK_NLqD9lP0hO") },
-                    { title: "Mathematical Foundations", url: preview("1DDz8E6a_F0sbuLq4dpqKp2hD4xHQ7xKf") },
-                    { title: "Future Plans", url: preview("1OUyt9xE2ZCIG273YD7sxQs7GrziAHlHM") },
+                    { title: "Comparative Analysis",     url: view("1NHKaSamcCqbTTFWpGYjK_NLqD9lP0hO") },
+                    { title: "Mathematical Foundations", url: view("1DDz8E6a_F0sbuLq4dpqKp2hD4xHQ7xKf") },
+                    { title: "Future Plans",             url: view("1OUyt9xE2ZCIG273YD7sxQs7GrziAHlHM") },
                 ];
             </script>
 
