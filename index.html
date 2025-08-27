@@ -179,11 +179,14 @@
 
             <!-- EDIT ONLY THIS CONFIG ARRAY -->
             <script>
-                // ↓↓↓ Add your PDFs here (title + absolute link). Order = display order.
+                // Use export=preview for smooth open; change to export=download if you prefer forced download.
+                const preview = id => `https://drive.google.com/uc?export=preview&id=${id}`;
+
+                // IDs taken from your Drive "Get link" (between /d/ and /view). First ID had a trailing "-", removed.
                 const PDF_LINKS = [
-                    { title: "Comparitive Analysis", url: "https://drive.google.com/uc?export=download&id=1NHKaSamcCqbTTFWpGYjK_NLqD9lP0hO-" },
-                    { title: "Mathematical Foundations", url: "https://drive.google.com/uc?export=download&id=1DDz8E6a_F0sbuLq4dpqKp2hD4xHQ7xKf" },
-                    { title: "Future Plans", url: "https://drive.google.com/uc?export=download&id=1OUyt9xE2ZCIG273YD7sxQs7GrziAHlHM" },
+                    { title: "Comparative Analysis", url: preview("1NHKaSamcCqbTTFWpGYjK_NLqD9lP0hO") },
+                    { title: "Mathematical Foundations", url: preview("1DDz8E6a_F0sbuLq4dpqKp2hD4xHQ7xKf") },
+                    { title: "Future Plans", url: preview("1OUyt9xE2ZCIG273YD7sxQs7GrziAHlHM") },
                 ];
             </script>
 
@@ -205,9 +208,12 @@
     <script>
         // render links
         const container = document.getElementById('links');
-        PDF_LINKS.forEach((item, i) => {
+        PDF_LINKS.forEach(item => {
             const a = document.createElement('a');
-            a.className = 'link'; a.href = item.url; a.target = '_blank'; a.rel = 'noopener';
+            a.className = 'link';
+            a.href = item.url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
             a.innerHTML = `
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 12h9M12 4v9" stroke="#22d3ee" stroke-width="1.7" fill="none" stroke-linecap="round"/>
